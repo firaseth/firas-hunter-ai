@@ -61,7 +61,7 @@ const KnowledgeBridge = () => {
                 {/* Connection Visualization */}
                 <div style={{ background: 'var(--bg-secondary)', borderRadius: '12px', padding: '1.5rem', position: 'relative', minHeight: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '4rem', zIndex: 1 }}>
-                        {['OpenAI', 'Gemini', 'Claude'].map((name, i) => (
+                        {['OpenAI', 'Gemini', 'Claude'].map((name) => (
                             <div key={name} style={{ textAlign: 'center', position: 'relative' }}>
                                 <div style={{
                                     width: '60px',
