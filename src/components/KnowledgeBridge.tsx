@@ -57,7 +57,7 @@ const KnowledgeBridge = () => {
                 </button>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr', gap: '2rem' }}>
+            <div className="knowledge-grid">
                 {/* Connection Visualization */}
                 <div style={{ background: 'var(--bg-secondary)', borderRadius: '12px', padding: '1.5rem', position: 'relative', minHeight: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '4rem', zIndex: 1 }}>
