@@ -168,7 +168,7 @@ const Dashboard = () => {
                                 }}
                             >
                                 {isRunning ? <Loader2 size={18} className="spin" /> : <Play size={18} />}
-                                {isRunning ? 'PROCESSING SIGNALS...' : 'INITIALIZE DEEP SCAN'}
+                                {isRunning ? 'SCANNING...' : 'INITIALIZE SCAN'}
                             </button>
                         </div>
 
