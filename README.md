@@ -22,6 +22,38 @@ Firas Hunter is a professional AI Topic Intelligence Agent designed for identify
 - **Icons**: Lucide React
 - **Charts**: Recharts
 
+## 🌐 Live Deployment (Vercel)
+
+Deploying **Firas Hunter** takes less than 2 minutes.
+
+### 🚀 Step-by-Step Deployment:
+
+1. **Connect GitHub**: Visit **[Vercel.com](https://vercel.com/new)** and sign in with your GitHub account.
+2. **Import Project**: Select the `firas-hunter-ai` repository.
+3. **Build Settings**: Vercel will automatically detect **Vite**.
+   - **Framework Preset**: `Vite`
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+4. **Deploy**: Click **"Deploy"**.
+
+Once finished, your AI agent will be live at a custom `vercel.app` URL!
+
+## 🛠️ Development & Local Setup
+
+```bash
+# Install dependencies
+npm install
+
+# Run performance dev server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+---
+*Secured & Maintained by Firas Hunter AI Agent*
+
 ## 🎯 Primary Mission
 
 Act as a decision-making intelligence layer for founders, investors, developers, and researchers to understand where AI attention and innovation are moving next.
