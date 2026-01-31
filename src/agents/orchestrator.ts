@@ -5,63 +5,68 @@ export const agentWorkflow = [
     {
         id: 'a1',
         name: 'Data Collection',
-        duration: 4000,
+        duration: 3500,
         logs: [
-            'Initializing signal scrapers...',
-            'Crawling GitHub Trending for "AI"...',
-            'Scraping Hugging Face Daily Models...',
-            'Fetching Google Trends (AI queries)...',
-            'Analyzing Reddit /r/MachineLearning signals...',
-            'Checking Product Hunt AI launches...'
-        ]
+            'Initializing hyper-speed signal scrapers...',
+            'Deep-crawling GitHub Trending API with 98% coverage...',
+            'Parsing Hugging Face meta-data for model usage shifts...',
+            'Aggregating Google Trends global signal clusters...',
+            'Executing NLP on Reddit /r/MachineLearning threads...',
+            'Live-streaming Product Hunt AI telemetry...'
+        ],
+        metrics: { speed: 99, accuracy: 96, depth: 92 }
     },
     {
         id: 'a2',
         name: 'Trend Analysis',
-        duration: 5000,
+        duration: 4500,
         logs: [
-            'Normalizing raw signal data...',
-            'Calculating WoW growth velocity...',
-            'Detecting cross-platform clusters...',
-            'Identifying emerging keyword patterns...',
-            'Filtering high-noise signals...'
-        ]
+            'Normalizing multi-platform signal variance...',
+            'Calculating proprietary WoW growth velocity vectors...',
+            'Identifying cross-agent semantic clusters...',
+            'Predicting emerging keyword trajectories (Acc: 94%)...',
+            'Discarding stochastic noise from telemetry streams...'
+        ],
+        metrics: { speed: 95, accuracy: 97, depth: 95 }
     },
     {
         id: 'a3',
         name: 'Scoring & Ranking',
-        duration: 4000,
+        duration: 3500,
         logs: [
-            'Applying weighted scoring matrix...',
-            'Evaluating commercial potential...',
-            'Assessing technical longevity...',
-            'Cross-validating with historical data...',
-            'Generating final topic ranks...'
-        ]
+            'Applying Bayesian weighted scoring matrix...',
+            'Quantifying commercial viability coefficients...',
+            'Determining technical longevity and moat depth...',
+            'Validating against 24-month historical trend cycles...',
+            'Compiling final architectural topic hierarchy...'
+        ],
+        metrics: { speed: 98, accuracy: 99, depth: 94 }
     },
     {
         id: 'a4',
         name: 'Opportunity Intelligence',
-        duration: 6000,
+        duration: 5500,
         logs: [
-            'Mapping trends to market gaps...',
-            'Identifying target demographics...',
-            'Synthesizing business use cases...',
-            'Formulating monetization strategies...',
-            'Calculating Implementation Difficulty (ID)...'
-        ]
+            'Synthesizing market gap blueprints...',
+            'Projecting target demographic high-intent segments...',
+            'Architecting multi-agent business use cases...',
+            'Designing Tier-1 monetization frameworks...',
+            'Simulating Implementation Difficulty (ID) at scale...'
+        ],
+        metrics: { speed: 92, accuracy: 94, depth: 99 }
     },
     {
         id: 'a5',
         name: 'Quality & Validation',
-        duration: 3000,
+        duration: 2500,
         logs: [
-            'Running hallucination check...',
-            'Verifying data consistency...',
-            'Checking source credibility scores...',
-            'Final report formatting...',
-            'Intelligence report signed and ready.'
-        ]
+            'Performing Deep Hallucination Verification (DHV)...',
+            'Checking cross-agent consistency parity...',
+            'Ranking source credibility through Peer-AI Review...',
+            'Formatting high-fidelity intelligence brief...',
+            'Security signed. Report deployed to Firas Hunter.'
+        ],
+        metrics: { speed: 96, accuracy: 99, depth: 98 }
     },
 ];
 
@@ -71,7 +76,8 @@ export const simulateAgentProcess = (callback: (agents: AgentStatus[], currentLo
         name: a.name,
         status: 'idle',
         progress: 0,
-        lastUpdate: '-'
+        lastUpdate: '-',
+        metrics: a.metrics
     }));
 
     let currentStep = 0;
@@ -83,7 +89,7 @@ export const simulateAgentProcess = (callback: (agents: AgentStatus[], currentLo
         const startTime = Date.now();
 
         currentAgents = currentAgents.map((a, i) =>
-            i === currentStep ? { ...a, status: 'processing', lastUpdate: 'Just now' } : a
+            i === currentStep ? { ...a, status: 'processing', lastUpdate: 'Just now', reasoning: agentDef.logs[0] } : a
         );
         callback([...currentAgents], agentDef.logs[0]);
 
@@ -91,7 +97,6 @@ export const simulateAgentProcess = (callback: (agents: AgentStatus[], currentLo
             const elapsed = Date.now() - startTime;
             const progress = Math.min(Math.round((elapsed / agentDef.duration) * 100), 100);
 
-            // Select log based on progress
             const logIndex = Math.min(Math.floor((progress / 100) * agentDef.logs.length), agentDef.logs.length - 1);
             const currentLog = agentDef.logs[logIndex];
 
@@ -100,7 +105,8 @@ export const simulateAgentProcess = (callback: (agents: AgentStatus[], currentLo
                     ...a,
                     progress,
                     status: progress === 100 ? 'complete' : 'processing',
-                    lastUpdate: progress === 100 ? 'Just now' : a.lastUpdate
+                    lastUpdate: progress === 100 ? 'Just now' : a.lastUpdate,
+                    reasoning: currentLog
                 } : a
             );
 
@@ -109,9 +115,9 @@ export const simulateAgentProcess = (callback: (agents: AgentStatus[], currentLo
             if (progress === 100) {
                 clearInterval(interval);
                 currentStep++;
-                setTimeout(processNextStep, 800);
+                setTimeout(processNextStep, 400); // Faster transition
             }
-        }, 150);
+        }, 120); // Faster updates
     };
 
     processNextStep();

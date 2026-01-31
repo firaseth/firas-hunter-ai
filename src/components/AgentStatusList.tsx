@@ -20,14 +20,29 @@ const AgentStatusList = ({ agents }: { agents: AgentStatus[] }) => {
                                 <span style={{ fontSize: '0.875rem', fontWeight: 600 }}>{agent.name}</span>
                                 <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>{agent.progress}%</span>
                             </div>
-                            <div style={{ width: '100%', height: '4px', background: 'var(--bg-accent)', borderRadius: '2px', overflow: 'hidden' }}>
+                            <div style={{ width: '100%', height: '4px', background: 'var(--bg-accent)', borderRadius: '2px', overflow: 'hidden', marginBottom: '8px' }}>
                                 <div style={{
                                     width: `${agent.progress}%`,
                                     height: '100%',
                                     background: agent.status === 'complete' ? 'var(--accent-emerald)' : 'var(--accent-blue)',
-                                    transition: 'width 1s ease-in-out'
+                                    transition: 'width 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                                    boxShadow: `0 0 10px ${agent.status === 'complete' ? 'var(--accent-emerald)' : 'var(--accent-blue)'}44`
                                 }} />
                             </div>
+
+                            {agent.reasoning && agent.status === 'processing' && (
+                                <div style={{ fontSize: '0.625rem', color: 'var(--accent-emerald)', fontFamily: 'monospace', opacity: 0.8, overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>
+                                    &gt; {agent.reasoning}
+                                </div>
+                            )}
+
+                            {agent.status === 'complete' && agent.metrics && (
+                                <div style={{ display: 'flex', gap: '8px' }}>
+                                    <div style={{ fontSize: '0.625rem', color: 'var(--text-secondary)' }}>Speed: <span style={{ color: 'var(--accent-blue)' }}>{agent.metrics.speed}%</span></div>
+                                    <div style={{ fontSize: '0.625rem', color: 'var(--text-secondary)' }}>Acc: <span style={{ color: 'var(--accent-emerald)' }}>{agent.metrics.accuracy}%</span></div>
+                                    <div style={{ fontSize: '0.625rem', color: 'var(--text-secondary)' }}>Depth: <span style={{ color: 'var(--accent-purple)' }}>{agent.metrics.depth}%</span></div>
+                                </div>
+                            )}
                         </div>
                     </div>
                 ))}

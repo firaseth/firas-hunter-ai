@@ -1,5 +1,5 @@
 
-import type { TrendSignal, Opportunity } from './types';
+import type { TrendSignal, Opportunity, NewsItem, SentimentMetric } from './types';
 
 export const mockTrends: TrendSignal[] = [
     // General
@@ -118,4 +118,19 @@ export const mockOpportunities: Opportunity[] = [
         monetization: ['R&D Partnerships', 'IP Licensing'],
         potential: 98
     }
+];
+
+export const mockNews: NewsItem[] = [
+    { id: 'n1', title: 'OpenAI o3-mini models benchmarking', impact: 'High', category: 'Models', summary: 'Leap in reasoning efficiency for edge deployment.', timestamp: '12m ago' },
+    { id: 'n2', title: 'NVIDIA hits peak H100 demand', impact: 'Medium', category: 'Hardware', summary: 'Secondary market shows sustained enterprise hunger.', timestamp: '45m ago' },
+    { id: 'n3', title: 'DeepSeek-V3 Open-Source explosion', impact: 'High', category: 'Open Source', summary: 'Massive disruption in the cost-to-performance for MoE models.', timestamp: '1h ago' },
+    { id: 'n4', title: 'Mistral Large 2 integrations expand in EU', impact: 'Low', category: 'Business', summary: 'New partnerships in the cloud sovereignty sector.', timestamp: '3h ago' },
+    { id: 'n5', title: 'Google Gemini 2.0 Pro Early Access', impact: 'High', category: 'Agents', summary: 'Native tool-use capabilities show 40% less latency.', timestamp: '5h ago' }
+];
+
+export const mockSentiment: SentimentMetric[] = [
+    { topic: 'Agentic RAG', hypeScore: 92, utilityScore: 88, momentum: 'Rising' },
+    { topic: 'Zero-Shot Video', hypeScore: 95, utilityScore: 45, momentum: 'Cooling' },
+    { topic: 'Small Language Models', hypeScore: 75, utilityScore: 94, momentum: 'Rising' },
+    { topic: 'LLM Operating Systems', hypeScore: 88, utilityScore: 68, momentum: 'Rising' },
 ];

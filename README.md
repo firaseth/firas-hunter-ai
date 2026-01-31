@@ -5,6 +5,11 @@ Firas Hunter is a professional AI Topic Intelligence Agent designed for identify
 ## 🚀 Key Features
 
 - **Multi-Agent Architecture**: Orchestrates specialized agents for Data Collection, Trend Analysis, Scoring, and Opportunity Intelligence.
+- **🎙️ Voice Intelligence**: Daily synthesized briefings with real-time audio transcripts.
+- **🗞️ Global News Ticker**: Seamless, high-impact AI news flash streaming.
+- **🌊 Sentiment Pulse**: Predictive tracking of Hype vs Utility across emerging AI sectors.
+- **✨ Niche Spotter**: Hunting for "Hidden Gems"—high-velocity, low-visibility projects.
+- **🧪 Project X Simulator**: Interactive sandbox for validating business ideas against live market signals.
 - **Sector-Specific Insights**: Deep dives into Finance, Healthcare, Education, Enterprise, and Consumer AI sectors.
 - **Live Signal Monitoring**: Real-time simulation of signal scraping across GitHub, Hugging Face, Google Trends, and more.
 - **Professional Dashboard**: A premium, glassmorphism-style UI built with React, TypeScript, and Framer Motion.
