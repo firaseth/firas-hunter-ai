@@ -4,11 +4,12 @@ import { useState } from 'react';
 import type { SharedDataItem } from '../types';
 
 const mockSharedData: SharedDataItem[] = [
-    { id: '1', sourceAgentId: 'OpenAI', type: 'Code', content: 'PyTorch Training Loop for Sentiment Analysis', timestamp: '2s ago' },
-    { id: '2', sourceAgentId: 'Gemini Pro', type: 'Image', content: 'Synthetic Healthcare Data Distribution.png', timestamp: '45s ago' },
-    { id: '3', sourceAgentId: 'Claude 3.5', type: 'Video', content: 'Multi-Agent Negotiation Logic Demo.mp4', timestamp: '3m ago' },
-    { id: '4', sourceAgentId: 'Llama 3', type: 'Insight', content: 'Local LLM Quantization Benchmarks', timestamp: '8m ago' },
-    { id: '5', sourceAgentId: 'GPT-4o', type: 'Topic', content: 'Cross-Modal reasoning in edge devices', timestamp: '15m ago' },
+    { id: '1', sourceAgentId: 'DeepSeek-V3', type: 'Code', content: 'Optimized MoE Attention Kernel in Triton', timestamp: '2s ago' },
+    { id: '2', sourceAgentId: 'Mistral Large', type: 'Image', content: 'Synthetic Training Set Distribution.png', timestamp: '15s ago' },
+    { id: '3', sourceAgentId: 'Grok-2', type: 'Insight', content: 'Real-time X Signal Correlation Alpha', timestamp: '45s ago' },
+    { id: '4', sourceAgentId: 'Gemini Pro', type: 'Video', content: 'Multi-Modal Reasoning Workflow.mp4', timestamp: '3m ago' },
+    { id: '5', sourceAgentId: 'Claude 3.5', type: 'Code', content: 'Artifact Generation Logic for Agents', timestamp: '8m ago' },
+    { id: '6', sourceAgentId: 'OpenAI o3', type: 'Insight', content: 'Chain-of-Thought reasoning path logic', timestamp: '12m ago' },
 ];
 
 const KnowledgeBridge = () => {
@@ -60,8 +61,8 @@ const KnowledgeBridge = () => {
             <div className="knowledge-grid">
                 {/* Connection Visualization */}
                 <div style={{ background: 'var(--bg-secondary)', borderRadius: '12px', padding: '1.5rem', position: 'relative', minHeight: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '4rem', zIndex: 1 }}>
-                        {['OpenAI', 'Gemini', 'Claude'].map((name) => (
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(80px, 1fr))', gap: '2rem', zIndex: 1, width: '100%' }}>
+                        {['OpenAI', 'Gemini', 'Claude', 'DeepSeek', 'Mistral', 'Grok'].map((name) => (
                             <div key={name} style={{ textAlign: 'center', position: 'relative' }}>
                                 <div style={{
                                     width: '60px',
