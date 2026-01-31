@@ -8,7 +8,7 @@ interface Props {
 
 const IndustrySelector = ({ selected, onSelect }: Props) => {
     return (
-        <div style={{ display: 'flex', gap: '0.75rem', overflowX: 'auto', paddingBottom: '0.5rem', marginBottom: '1.5rem', scrollbarWidth: 'none' }}>
+        <div style={{ display: 'flex', gap: '0.75rem', overflowX: 'auto', paddingBottom: '0.5rem', scrollbarWidth: 'none' }}>
             {industries.map(industry => (
                 <button
                     key={industry}

@@ -11,7 +11,7 @@ const NewsTicker = ({ news }: { news: NewsItem[] }) => {
             overflow: 'hidden',
             position: 'relative'
         }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '0 4rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '0 2rem' }}>
                 <div style={{
                     display: 'flex',
                     alignItems: 'center',

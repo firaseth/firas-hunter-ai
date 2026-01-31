@@ -64,10 +64,10 @@ const Dashboard = () => {
                         <p style={{ color: 'var(--text-secondary)' }}>AI topic intelligence & deep trend discovery</p>
                     </div>
 
-                    <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-                        <div style={{ textAlign: 'right' }}>
-                            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Peak Performance</div>
-                            <div style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--accent-emerald)' }}>99.2% ACCURACY</div>
+                    <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+                        <div style={{ textAlign: 'right', minWidth: 'max-content' }}>
+                            <div style={{ fontSize: '0.70rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Peak Performance</div>
+                            <div style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--accent-emerald)' }}>99.2% ACCURACY</div>
                         </div>
                         <div className="glass-card" style={{ padding: '0.4rem 0.75rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '8px', border: '1px solid var(--accent-emerald)', background: 'rgba(16, 185, 129, 0.05)' }}>
                             <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-emerald)', boxShadow: '0 0 10px var(--accent-emerald)' }}></div>
@@ -79,9 +79,11 @@ const Dashboard = () => {
                 <div className="dashboard-grid">
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
 
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <IndustrySelector selected={selectedIndustry} onSelect={setSelectedIndustry} />
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '20px', marginBottom: '1.5rem' }}>
+                            <div style={{ flex: 1, minWidth: 0 }}>
+                                <IndustrySelector selected={selectedIndustry} onSelect={setSelectedIndustry} />
+                            </div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
                                 <div style={{
                                     display: 'flex',
                                     alignItems: 'center',
@@ -89,13 +91,14 @@ const Dashboard = () => {
                                     background: 'var(--bg-secondary)',
                                     padding: '0.5rem 1rem',
                                     borderRadius: '10px',
-                                    border: '1px solid var(--border-color)'
+                                    border: '1px solid var(--border-color)',
+                                    width: 'max-content'
                                 }}>
                                     <Search size={18} color="var(--text-secondary)" />
                                     <input
                                         type="text"
-                                        placeholder="Search signals..."
-                                        style={{ background: 'none', border: 'none', color: 'white', outline: 'none', width: '150px', fontSize: '0.875rem' }}
+                                        placeholder="Search..."
+                                        style={{ background: 'none', border: 'none', color: 'white', outline: 'none', width: '100px', fontSize: '0.875rem' }}
                                     />
                                 </div>
                             </div>
@@ -173,7 +176,7 @@ const Dashboard = () => {
                         <SentimentPulse metrics={mockSentiment} />
 
                         <div className="glass-card">
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '1rem' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '0 2.5rem' }}>
                                 <Globe size={18} color="var(--accent-blue)" />
                                 <h3 style={{ fontSize: '0.875rem', fontWeight: 700 }}>GLOBAL SIGNAL SOURCES</h3>
                             </div>

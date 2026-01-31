@@ -69,10 +69,12 @@ body {
 
 .main-content {
   flex: 1;
-  padding: 3rem 4rem;
+  padding: 1.5rem 2rem;
   width: 100%;
   box-sizing: border-box;
-  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
 
 .glass-card {
@@ -138,9 +140,10 @@ h3 {
 
 .dashboard-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 380px;
-  gap: 2rem;
+  grid-template-columns: 1fr 320px;
+  gap: 1.5rem;
   width: 100%;
+  min-width: 0;
 }
 
 @media (max-width: 1280px) {
