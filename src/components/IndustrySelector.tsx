@@ -1,5 +1,5 @@
 
-const industries = ['All', 'Finance', 'Healthcare', 'Education', 'Consumer', 'Enterprise'] as const;
+const industries = ['All', 'Software', 'Security', 'Enterprise', 'Finance', 'Healthcare', 'Education', 'Consumer'] as const;
 
 interface Props {
     selected: string;

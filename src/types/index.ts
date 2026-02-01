@@ -2,8 +2,8 @@
 export interface TrendSignal {
     id: string;
     topic: string;
-    category: 'Agents' | 'Generative AI' | 'Business' | 'Education' | 'Healthcare' | 'DevOps' | 'Security' | 'Finance' | 'Productivity';
-    industry: 'General' | 'Finance' | 'Healthcare' | 'Education' | 'Consumer' | 'Enterprise';
+    category: 'Agents' | 'Generative AI' | 'Business' | 'Education' | 'Healthcare' | 'DevOps' | 'Security' | 'Finance' | 'Productivity' | 'Coding' | 'Decoding' | 'Architecture' | 'Mobile';
+    industry: 'General' | 'Finance' | 'Healthcare' | 'Education' | 'Consumer' | 'Enterprise' | 'Software' | 'Security';
     score: number;
     growth: number;
     platforms: string[];
@@ -21,6 +21,20 @@ export interface Opportunity {
     potential: number;
 }
 
+export interface DependentFile {
+    name: string;
+    path: string;
+    status: 'stable' | 'updated' | 'conflicting';
+    priority: 'high' | 'medium' | 'low';
+}
+
+export interface CollaborativeStep {
+    model: string;
+    action: string;
+    output: string;
+    timestamp: string;
+}
+
 export interface AgentStatus {
     id: string;
     name: string;
@@ -33,6 +47,7 @@ export interface AgentStatus {
         accuracy: number;
         depth: number;
     };
+    collaboration?: CollaborativeStep[];
 }
 
 export interface SharedDataItem {

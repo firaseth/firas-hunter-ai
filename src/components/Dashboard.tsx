@@ -16,9 +16,20 @@ import { mockTrends, mockNews, mockSentiment } from '../mockData';
 import type { AgentStatus, TrendSignal } from '../types';
 import { simulateAgentProcess } from '../agents/orchestrator';
 
+
+import DependentFiles from './DependentFiles';
+import CollaborationRoom from './CollaborationRoom';
+import CodingConsole from './CodingConsole';
+import ModelNexus from './ModelNexus';
+import ComparisonBench from './ComparisonBench';
+import NeuralGraph from './NeuralGraph';
+import IntelligenceReport from './IntelligenceReport';
+import SentimentTicker from './SentimentTicker';
+
 const Dashboard = () => {
     const [agents, setAgents] = useState<AgentStatus[]>([]);
     const [isRunning, setIsRunning] = useState(false);
+    const [isReportReady, setIsReportReady] = useState(false);
     const [selectedIndustry, setSelectedIndustry] = useState('All');
     const [activeLog, setActiveLog] = useState<string>('System idle. Awaiting command...');
     const [filteredTrends, setFilteredTrends] = useState<TrendSignal[]>(mockTrends);
@@ -33,12 +44,14 @@ const Dashboard = () => {
 
     const startAnalysis = () => {
         setIsRunning(true);
+        setIsReportReady(false);
         setActiveLog('Initializing multi-agent intelligence layer...');
         simulateAgentProcess((updatedAgents, currentLog) => {
             setAgents(updatedAgents);
             if (currentLog) setActiveLog(currentLog);
             if (updatedAgents.every(a => a.status === 'complete')) {
                 setIsRunning(false);
+                setIsReportReady(true);
                 setActiveLog('Intelligence report complete. Insights updated.');
             }
         });
@@ -46,11 +59,11 @@ const Dashboard = () => {
 
     useEffect(() => {
         setAgents([
-            { id: 'a1', name: 'Data Collection', status: 'idle', progress: 0, lastUpdate: '-' },
-            { id: 'a2', name: 'Trend Analysis', status: 'idle', progress: 0, lastUpdate: '-' },
-            { id: 'a3', name: 'Scoring & Ranking', status: 'idle', progress: 0, lastUpdate: '-' },
-            { id: 'a4', name: 'Opportunity Intelligence', status: 'idle', progress: 0, lastUpdate: '-' },
-            { id: 'a5', name: 'Quality & Validation', status: 'idle', progress: 0, lastUpdate: '-' },
+            { id: 'a1', name: 'Logic Synthesis', status: 'idle', progress: 0, lastUpdate: '-', collaboration: [] },
+            { id: 'a2', name: 'Software Architecture', status: 'idle', progress: 0, lastUpdate: '-', collaboration: [] },
+            { id: 'a3', name: 'Matrix Decoding', status: 'idle', progress: 0, lastUpdate: '-', collaboration: [] },
+            { id: 'a4', name: 'Mobile/Web Synergy', status: 'idle', progress: 0, lastUpdate: '-', collaboration: [] },
+            { id: 'a5', name: 'Professional Audit', status: 'idle', progress: 0, lastUpdate: '-', collaboration: [] },
         ]);
     }, []);
 
@@ -60,14 +73,14 @@ const Dashboard = () => {
             <div className="main-content">
                 <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2.5rem' }}>
                     <div>
-                        <h1 style={{ fontSize: '2rem', marginBottom: '0.25rem' }}>Firas <span className="gradient-text">Hunter</span></h1>
-                        <p style={{ color: 'var(--text-secondary)' }}>AI topic intelligence & deep trend discovery</p>
+                        <h1 style={{ fontSize: '2.5rem', marginBottom: '0.25rem', fontWeight: 900, letterSpacing: '-0.05em' }}>LOGI <span className="gradient-text">INFINITY</span></h1>
+                        <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem' }}>The Ultimate Synthesis of Coding, Architecture & Decoding</p>
                     </div>
 
                     <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
                         <div style={{ textAlign: 'right', minWidth: 'max-content' }}>
-                            <div style={{ fontSize: '0.70rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Peak Performance</div>
-                            <div style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--accent-emerald)' }}>99.2% ACCURACY</div>
+                            <div style={{ fontSize: '0.70rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Synthetic IQ</div>
+                            <div style={{ fontSize: '1rem', fontWeight: 900, color: 'var(--accent-blue)' }}>99.9% PRECISION</div>
                         </div>
                         <div className="glass-card" style={{ padding: '0.4rem 0.75rem', borderRadius: '10px', display: 'flex', alignItems: 'center', gap: '8px', border: '1px solid var(--accent-emerald)', background: 'rgba(16, 185, 129, 0.05)' }}>
                             <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-emerald)', boxShadow: '0 0 10px var(--accent-emerald)' }}></div>
@@ -76,8 +89,12 @@ const Dashboard = () => {
                     </div>
                 </header>
 
+                <DependentFiles />
+                <ModelNexus />
+
                 <div className="dashboard-grid">
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                        {/* ... rest of the main column */}
 
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '20px', marginBottom: '1.5rem' }}>
                             <div style={{ flex: 1, minWidth: 0 }}>
@@ -109,16 +126,21 @@ const Dashboard = () => {
                             <span style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Showing {filteredTrends.length} detected trends</span>
                         </div>
 
+
                         <div className="grid-cols-3">
                             {filteredTrends.map(trend => (
                                 <TrendCard key={trend.id} trend={trend} />
                             ))}
                         </div>
 
+                        <CodingConsole />
+                        <NeuralGraph />
+
                         <NicheSpotter />
                         <OpportunityPanel />
                         <KnowledgeBridge />
                         <MarketSimulator />
+                        <ComparisonBench />
                     </div>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -172,50 +194,31 @@ const Dashboard = () => {
                             </button>
                         </div>
 
+
                         <AgentStatusList agents={agents} />
+                        <CollaborationRoom agents={agents} />
                         <SentimentPulse metrics={mockSentiment} />
 
                         <div className="glass-card">
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '0 2.5rem' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '0 0.5rem', marginBottom: '1rem' }}>
                                 <Globe size={18} color="var(--accent-blue)" />
-                                <h3 style={{ fontSize: '0.875rem', fontWeight: 700 }}>GLOBAL SIGNAL SOURCES</h3>
+                                <h3 style={{ fontSize: '0.875rem', fontWeight: 700 }}>SYNTHESIZED MODELS</h3>
                             </div>
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
-                                {['Google Trends', 'GitHub API', 'arXiv Labs', 'Hugging Face', 'Reddit Stream', 'Product Hunt'].map(s => (
-                                    <div key={s} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
-                                        <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'var(--accent-blue)' }}></div>
+                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
+                                {['GPT-4o Logic', 'Claude 3.5 Sonnet', 'Gemini 1.5 Pro', 'DeepSeek Coder', 'Llama 3 70B', 'Logi Core (Internal)'].map(s => (
+                                    <div key={s} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.75rem', color: 'var(--text-secondary)', padding: '4px 8px', borderRadius: '6px', background: 'rgba(59, 130, 246, 0.05)', border: '1px solid rgba(59, 130, 246, 0.1)' }}>
+                                        <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent-blue)' }}></div>
                                         {s}
                                     </div>
                                 ))}
                             </div>
                         </div>
 
-                        <div className="glass-card" style={{ background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1))' }}>
-                            <h3 style={{ fontSize: '0.875rem', color: 'var(--accent-purple)', marginBottom: '0.5rem', textTransform: 'uppercase', fontWeight: 800 }}>Firas Hunter Insight</h3>
-                            <p style={{ fontSize: '0.875rem', lineHeight: '1.5', color: 'var(--text-primary)' }}>
-                                Firas Hunter's signal correlation engine suggests {selectedIndustry === 'All' ? 'Agentic Workflows' : selectedIndustry} will see a 40%+ spike in developer adoption this quarter.
-                            </p>
-                        </div>
-
-                        <button style={{
-                            background: 'rgba(59, 130, 246, 0.1)',
-                            color: 'var(--accent-blue)',
-                            border: '1px solid rgba(59, 130, 246, 0.2)',
-                            padding: '0.8rem',
-                            borderRadius: '10px',
-                            fontWeight: 600,
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            gap: '8px',
-                            cursor: 'pointer'
-                        }}>
-                            <Download size={18} />
-                            Download Intelligence PDF
-                        </button>
+                        <IntelligenceReport isReady={isReportReady} />
                     </div>
                 </div>
             </div>
+            <SentimentTicker />
         </div>
     );
 };
